@@ -17,5 +17,17 @@ namespace Examples.Charge.Infra.Data.Repositories
         }
 
         public async Task<IEnumerable<PersonPhone>> FindAllAsync() => await Task.Run(() => _context.PersonPhone);
+
+        public async Task Update(PersonPhone phoneNumber) => await Task.Run(() =>
+            _context.PersonPhone.Update(phoneNumber));
+
+        public async Task Inserir(PersonPhone phoneNumber) => await Task.Run(() =>
+                     _context.PersonPhone.Add(phoneNumber));
+
+        public async Task Remover(PersonPhone phoneNumber) => await Task.Run(() =>
+             _context.PersonPhone.Remove(phoneNumber));
+
+        public async Task<PersonPhone> Obter(int id) => await Task.Run(() =>
+             _context.PersonPhone.Find(id));
     }
 }
